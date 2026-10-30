@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Testing Project - Haidar</title>
-    <!-- Tailwind CSS CDN -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* Warm Vibrant Orange Gradient Background */
+        
         body {
             background: linear-gradient(135deg, #180903 0%, #3d1403 25%, #852a05 55%, #d9480f 80%, #ff6b00 100%);
             background-attachment: fixed;
@@ -37,7 +37,6 @@
             overflow-x: hidden;
         }
 
-        /* Ambient background glow orb */
         .bg-glow {
             position: absolute;
             width: 500px;
@@ -50,7 +49,6 @@
             z-index: 0;
         }
 
-        /* Glassmorphism Card Style */
         .glass-card {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(20px);
@@ -59,7 +57,6 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 94, 26, 0.2);
         }
 
-        /* Custom Pulse Animation for Status */
         @keyframes statusPulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.2); }
@@ -71,33 +68,27 @@
 </head>
 <body class="font-sans text-white antialiased min-h-screen flex items-center justify-center relative p-4 sm:p-8">
 
-    <!-- Background Ambient Glow -->
     <div class="bg-glow"></div>
 
-    <!-- Main Container -->
     <div class="relative z-10 w-full max-w-5xl flex items-center justify-center">
 
-        <!-- Centered Glassmorphism Card -->
         <div class="glass-card rounded-3xl p-8 sm:p-12 md:p-14 max-w-2xl w-full text-center relative z-20 space-y-6 transform transition duration-300 hover:border-white/30">
-            
-            <!-- Top Tag / Badge -->
+
             <div>
-                <span class="inline-block bg-white/15 backdrop-blur-md border border-white/25 text-white/90 text-xs font-bold tracking-widest px-5 py-1.5 rounded-full uppercase shadow-sm">
+                <span class="inline-block bg-white/15 backdrop-blur-md border border-white/25 text-white/90 text-xs font-bold tracking-widest px-4 py-1 rounded-full uppercase shadow-sm">
                     VERCEL WEB TEST
                 </span>
             </div>
 
-            <!-- Welcome Title & Name -->
             <div class="space-y-1">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-md">
                     Selamat Datang,
                 </h1>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-amber-300 drop-shadow-lg uppercase">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-amber-300 drop-shadow-lg uppercase">
                     HAIDAR
                 </h2>
             </div>
 
-            <!-- Description Text -->
             <div class="space-y-3 max-w-lg mx-auto">
                 <p class="text-white/90 text-sm sm:text-base font-medium leading-relaxed">
                     You just deployed a new project called <span class="bg-black/30 border border-amber-400/40 text-amber-200 px-2 py-0.5 rounded-md font-mono text-xs sm:text-sm font-semibold">praktikum1_cloudcomputing</span>.
@@ -107,7 +98,6 @@
                 </p>
             </div>
 
-            <!-- Status Indicator Badge -->
             <div class="pt-2">
                 <div class="inline-flex items-center gap-2.5 bg-black/25 border border-emerald-400/30 px-4 py-2 rounded-full text-xs sm:text-sm font-medium text-emerald-200 shadow-inner">
                     <span class="relative flex h-2.5 w-2.5">
@@ -118,14 +108,30 @@
                 </div>
             </div>
 
-            <!-- Footer Inside Card -->
-            <div class="pt-4 border-t border-white/10 text-[11px] sm:text-xs text-white/60">
-                © 2026 Haidar. Dibuat untuk keperluan testing.
+            <div class="pt-4 border-t border-white/10 text-[11px] sm:text-xs text-white/70 font-mono">
+                Deployment berhasil pada: <span id="deploy-time">10/30/2026, 11:56:00 PM</span>
             </div>
 
         </div>
 
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const deployTimeEl = document.getElementById('deploy-time');
+            if (deployTimeEl) {
+                const now = new Date();
+                deployTimeEl.textContent = now.toLocaleString('en-US', {
+                    month: '2-digit',
+                    day: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: true
+                });
+            }
+        });
+    </script>
 </body>
 </html>
